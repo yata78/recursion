@@ -2,10 +2,10 @@ class Solution{
     public static int maxBread(int money, int price, int sticker){
         int buyBread = money / price;
 
-        return maxBreadHelper(price, sticker, buyBread, buyBread);
+        return maxBreadHelper(sticker, buyBread, buyBread);
     }
 
-    public static int maxBreadHelper(int price, int sticker,int haveSticker,int bread){
+    public static int maxBreadHelper( int sticker,int haveSticker,int bread){
         
         if(haveSticker < sticker){
             return bread;
@@ -14,7 +14,7 @@ class Solution{
         int buyBread = haveSticker / sticker;
 
 
-        return maxBreadHelper(price, sticker, (haveSticker / sticker) + (haveSticker % haveSticker), bread + buyBread);
+        return maxBreadHelper(sticker, buyBread + (haveSticker % sticker), bread + buyBread);
     }
 
     //Ž‚Á‚Ä‚¢‚é‚¨‹à‚Åƒpƒ“‚ð”ƒ‚¤(‚¨‹à‚Í‚±‚±‚Å‘S‚Ä–³‚­‚È‚é)
